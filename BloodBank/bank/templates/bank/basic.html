@@ -1,0 +1,98 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/jpg" href="{% static 'images/blood2.jpg' %}" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:600&display=swap" rel="stylesheet">
+    <style>
+         body{
+            background: url("https://images.unsplash.com/photo-1536856136534-bb679c52a9aa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80");   
+            color: white;
+            background-repeat: no-repeat; 
+            background-size: cover;
+        }
+        .card{
+            background-color: rgba(255, 255,255, 0.65);
+            font-family: 'Nunito Sans';
+        }
+        #brand-image{
+            height: 30px;
+        }
+        {% block css %}
+        {% endblock %}
+    </style>
+  </head>
+  <body>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">
+            <img id="brand-image" alt="Website Logo" src="{% static 'images/blood2.jpg' %}">
+        </a>
+        <a class="navbar-brand" href="/">RAPID BLOOD</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/">SEARCH DONORS<span class="sr-only">(current)</span></a>
+            </li>
+            <!--
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            -->
+            <li class="nav-item">
+                <a class="nav-link" href="/bloodTips">BLOOD TIPS</a>
+            </li>
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link" href="/donate">DONATE BLOOD</a>
+            </li>
+            {% endif %}
+            <li class="nav-item">
+              <a class="nav-link" href="/about">ABOUT US</a>
+            </li>
+            {% if user.is_authenticated %}
+              <li class="nav-item">
+                <a class="nav-link" href="/logout">LOGOUT</a>
+              </li>
+            {% else %}
+                <li class="nav-item">
+                  <a class="nav-link" href="/reg">REGISTER</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/login">LOGIN</a>
+                </li>
+            {% endif %}
+          </ul>
+          {% if user.is_authenticated %}
+              <a class="nav-link disabled" href="#">HELLO {{user.first_name}}</a>
+          {% endif %}
+        </div>
+    </nav>
+
+
+    {% block body %}
+    {% endblock %}
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/5e2399fbfb" crossorigin="anonymous"></script>
+  </body>
+</html>

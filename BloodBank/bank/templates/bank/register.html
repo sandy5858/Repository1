@@ -1,0 +1,84 @@
+{% extends 'bank/basic.html' %}
+
+{% block title %}REGISTER{% endblock %}
+
+{% block body %}
+    <form method="POST" action="">
+        {% csrf_token %}
+        <div class="container">
+          <h1>DONOR DETAILS</h1>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="FirstName">First Name</label>
+                    <input type="text" class="form-control" id="FirstName" placeholder="First Name" name="firstname">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="LastName">Last Name</label>
+                  <input type="text" class="form-control" id="LastName" placeholder="Last Name" name="lastname">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="gender">Gender</label><br>
+                  <select class="selectpicker" name="gender">
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Others</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="DateOfBirth">Date of Birth</label>
+                    <input type="date" class="form-control" id="DateOfBirth" placeholder="Date Of Birth" name="dob">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="contact">Mobile No</label>
+                  <input type="number" class="form-control" id="contact" placeholder="Contact No" name="contact">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="bloodgroup">Blood Group</label><br>
+                  <select class="selectpicker" name="bloodgroup">
+                    <option>A+</option>
+                    <option>B+</option>
+                    <option>O+</option>
+                    <option>AB+</option>
+                    <option>A-</option>
+                    <option>B-</option>
+                    <option>O-</option>
+                    <option>AB-</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputEmail4">Email</label>
+                  <input type="email" class="form-control" id="inputEmail4" placeholder="Email" name="email">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputPassword4">Password</label>
+                  <input type="password" class="form-control" id="inputPassword4" placeholder="Password" name="password">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputCity">City</label>
+                  <input type="text" class="form-control" id="inputCity" name="city">
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="inputState">State</label>
+                  <input type="text" class="form-control" id="inputState" name="state">
+                </div>
+                <div class="form-group col-md-2">
+                  <label for="inputZip">Zip</label>
+                  <input type="text" class="form-control" id="inputZip" name="zip">
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary">Register</button>
+        </div>
+    </form>
+{% endblock %}
+ 
+
+{% block css%}
+.selectpicker{
+  height: 35px;
+  border-radius: 5px;
+  border: 2px ;
+  width: 100%;
+}
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'bank/basic.html' %}
+
+{% block title %}DONATE BLOOD{% endblock %}
+
+{% block body %}
+<form method="POST" action="">
+    {% csrf_token %}
+    <div class="container">
+      <h1>DONATE</h1>
+
+            <div class="form-group col-md-6">
+              <label for="amount"><h4>How Much Will You Donate(in ml) ?</h4></label><br>
+              <select class="selectpicker" name="amount">
+                <option>100</option>
+                <option>200</option>
+                <option>300</option>
+              </select>
+            </div> <br>
+            <input type="hidden" name="user" value="{{ user.username }}">
+          <button type="submit" class="btn btn-primary mx-3">Donate</button>
+
+</form>
+{% endblock %}
+
+{% block css %}
+   .selectpicker{
+    height: 35px;
+    border-radius: 5px;
+    border: 2px ;
+    width: 30%;
+   }
+{% endblock %}
