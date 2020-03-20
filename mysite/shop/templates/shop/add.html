@@ -1,0 +1,27 @@
+{% extends 'shop/basic.html' %}
+
+{% block js %}
+<script>
+    if(localStorage.getItem('cart')==null){
+        var cart = {};
+    }
+    else{
+        cart = JSON.parse(localStorage.getItem('cart'));
+    }
+    if (cart['pr'+{{idx}}] != undefined) {
+        cart['pr'+{{idx}}][0] = cart['pr'+{{idx}}][0] + 1;
+    } 
+    else {
+        qty = 1;
+        name  = "{{product.product_name}}";
+        price = {{product.price}};
+        cart['pr'+{{idx}}] = [qty, name, price];
+    }
+    localStorage.setItem('cart', JSON.stringify(cart));
+    //updateCart(cart);
+
+    alert('{{product.product_name}} is added to your cart')
+    location.replace('/shop');
+</script>
+{% endblock %}
+

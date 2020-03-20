@@ -1,0 +1,20 @@
+{% extends 'shop/basic1.html' %}
+
+{% block title %} Tracker-My Awesome Cart {% endblock %}
+
+{% block body %}
+<h3>Track Your Order</h3>
+<form method="post" action="/shop/tracker/">    
+    {% csrf_token %}
+    <div class="form-row align-items-center my-3 mx-2">
+      <div class="col-auto">
+        <input type="text" class="form-control" placeholder="id" name="id">
+      </div>
+      <div class="col-auto">
+        <input type="email" class="form-control" placeholder="email" name="email">
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary mx-3">Track Order</button>
+</form>
+
+{% endblock %}
